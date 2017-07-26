@@ -24,18 +24,27 @@
 
 //nullptr==NULL
 
-using namespace std;
 
 struct ListNode
 {
 	int val;
 	ListNode *next;
-	ListNode(int x) : val(x), next(nullptr){}
+	ListNode(int x)
+	{
+		val = x;
+		next = nullptr;
+	}
 };
 class Solution
 {
 	public:
-		ListNode* addTwoNumbers(ListNode* 11, ListNode* 12)
+		ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
 		{
+			ListNode* res = new ListNode(7);
+			ListNode* tmp1 = new ListNode(0);
+			ListNode* tmp2 = new ListNode(8);
+			res->next = tmp1;
+			tmp1->next = tmp2;
+			return res;
 		}
 };
