@@ -1,0 +1,6 @@
+scp -P 2220 -r bandit4@bandit.labs.overthewire.org:~/inhere ./
+cd inhere && grep -rni ""
+file ./*
+cat -- -file07
+cat ./file07
+koReBOKuIDDepwhWk7jZC0RTdopnAYKh
