@@ -1,0 +1,82 @@
+set fileencodings=utf-11,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+syntax enable
+set cindent
+"tab键长度为8
+set tabstop=8
+"缩进宽度为4
+set shiftwidth=8
+"#总是显示状态栏
+set laststatus=2
+"#显示光标当前位置
+set ruler
+"#开启行号显示
+set number
+"#高亮显示当前行/列
+"set cursorline
+"set cursorcolumn
+"#高亮显示搜索结果
+set hlsearch
+"去除vi一致性
+set nocompatible
+"indent: 可以删除缩进
+"eol: 可以合并两行
+"start: 可以删除此次插入前的输入
+set backspace=indent,eol,start
+
+" vundle 环境设置
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+" vundle 管理的插件列表必须位于 vundle#begin() 和 vundle#end() 之间
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mattn/emmet-vim'
+" 插件列表结束
+call vundle#end()
+filetype plugin indent on
+"允许鼠标
+"set mouse=a
+" 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+nmap <F2> :NERDTreeToggle<CR>
+" 设置NERDTree子窗口宽度
+let NERDTreeWinSize=32
+" 设置NERDTree子窗口位置
+"let NERDTreeWinPos="right"
+" 显示隐藏文件
+let NERDTreeShowHidden=1
+" NERDTree 子窗口中不显示冗余帮助信息
+let NERDTreeMinimalUI=1
+" 删除文件时自动删除文件对应 buffer
+let NERDTreeAutoDeleteBuffer=1
+"vim-YCM
+"autocmd filetype cpp let g:ycm_global_ycm_extra_conf='/usr/lib/ycmd/ycm_extra_conf.py'
+autocmd filetype cpp let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+autocmd filetype c let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 1
+"下面那个是补全全局函数例如printf，默认是<C-space>
+let g:ycm_key_invoke_completion = '<C-a>'
+"在注释输入中也能补全
+let g:ycm_complete_in_comments = 1
+"在字符串输入中也能补全
+let g:ycm_complete_in_strings = 1
+"注释和字符串中的文字也会被收入补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+" 开启 YCM 基于标签引擎  
+let g:ycm_collect_identifiers_from_tags_files=1  
+" 引入 C++ 标准库tags，这个没有也没关系，只要.ycm_extra_conf.py文件中指定了正确的标准库路径  
+set tags+=/data/misc/software/misc./vim/stdcpp.tags  
+" 语法关键字补全              
+let g:ycm_seed_identifiers_with_syntax=1  
+"设置error和warning的提示符，如果没有设置，ycm会以syntastic的  
+" g:syntastic_warning_symbol 和 g:syntastic_error_symbol 这两个为准  
+let g:ycm_error_symbol='>>'  
+let g:ycm_warning_symbol='*>'  
+"开启语义补全  
+let g:ycm_seed_identifiers_with_syntax = 1  
+"在接受补全后不分裂出一个窗口显示接受的项  
+set completeopt-=preview  
+
